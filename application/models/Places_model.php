@@ -1,34 +1,40 @@
 <?php
 
-class Places_model extends CI_Model {
+require("Default_model.php");
+
+class Places_model extends Default_model {
 
         public static $TABLE_NAME = 'places';
 
         public function __construct()
         {
-                // Call the CI_Model constructor
                 parent::__construct();
         }
 
-        public function insert_all($places){
-                $data = array();
+        public function insert_batch($places) {
+                $inserted_count = 0;
                 foreach($places as $place) {
-                        echo '<pre>';
-                        
-                        $row = array(
-                                'google_id' => $place['place_id'],
-                                'name' => $place['name'],
-                                'vicinity' => $place['vicinity']
-                        );
-
-                        $data[] = $row;
+                        $external_reference_id = $place['id'];
+                        $distance = $place['distance'];
+                        $exists_in_db = $this->get_by_external_reference_id($external_reference_id);
+                        if(!$exists_in_db){
+                                $this->db->insert(self::$TABLE_NAME, array(
+                                        'external_reference_id'=>$external_reference_id,
+                                        'distance'=>$distance
+                                ));
+                                $inserted_count++;
+                        }
                 }
+                return $inserted_count;
+        }
 
-                // delete previous data
-                $this->db->empty_table(self::$TABLE_NAME);
+        public function get_by_external_reference_id($external_reference_id){
+                $query = $this->db->get_where(
+                        self::$TABLE_NAME,
+                        array('external_reference_id'=> $external_reference_id)
+                );
 
-                // insert all new data
-                $this->db->insert_batch(self::$TABLE_NAME, $data);
+                return $this->get_result($query);
         }
 
 }

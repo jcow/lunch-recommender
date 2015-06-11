@@ -18,9 +18,6 @@ class GooglePlaces extends CI_Controller {
 		
 	}
 
-
-	Look at this: https://github.com/Yelp/yelp-api/blob/master/v2/php/sample.php
-
 	public function index()
 	{
 		echo 'More information here: https://developers.google.com/places/webservice/intro';

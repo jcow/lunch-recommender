@@ -8,7 +8,7 @@ class APIYelp extends API {
 
 	private $russellInvestmentsLocation = "1301 2nd Ave #18 Seattle, WA 98101";
 	private $searchRadius = 1610; // 1 mile in meters
-	private $offsetLimit = 1000;
+	private $offsetLimit = 20;
 
 	public function __construct(){
 		parent::__construct();

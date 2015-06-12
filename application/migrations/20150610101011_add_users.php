@@ -9,7 +9,7 @@ class Migration_Add_users extends CI_Migration {
                 $this->dbforge->add_field(array(
                         'user_id' => array(
                                 'type' => 'INT',
-                                'constraint' => 5,
+                                'constraint' => 10,
                                 'unsigned' => TRUE,
                                 'auto_increment' => TRUE
                         ),

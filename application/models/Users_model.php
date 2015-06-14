@@ -11,6 +11,11 @@ class Users_model extends Default_model {
         parent::__construct();
     }
 
+    public function does_user_exist($username){
+        $row = $this->get_by_username($username);
+        return $row == NULL ? false : true;
+    }
+
     public function add_user($username) {
     	$user = $this->get_by_username($username);
     	if(!$user) {

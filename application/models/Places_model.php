@@ -1,6 +1,7 @@
 <?php
 
 require("Default_model.php");
+require("Users_to_places_model.php");
 
 class Places_model extends Default_model {
 
@@ -9,6 +10,15 @@ class Places_model extends Default_model {
         public function __construct()
         {
                 parent::__construct();
+        }
+
+        public function get_next_place_for_user_to_rate($user_id){
+                $query = $this->db->query("
+                        SELECT * FROM places
+                        LEFT JOIN users_to_places ON places.place_id = users_to_places.place_id
+                        WHERE users_to_places.user_id = $user_id
+                ");
+                
         }
 
         public function insert_batch($places) {

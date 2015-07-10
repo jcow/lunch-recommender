@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-		  <?=form_open('user/login', array(
+		  <?=form_open('auth/login', array(
 		  	'class'=>'form-signin'
 		  ));?>
 		    <h2 class="form-signin-heading">Please sign in</h2>

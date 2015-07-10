@@ -1,6 +1,6 @@
 <?php
 
-require("Default_model.php");
+require_once("Default_model.php");
 
 class Users_to_places_model extends Default_model {
 

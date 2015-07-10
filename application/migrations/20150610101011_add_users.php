@@ -18,7 +18,6 @@ class Migration_Add_users extends CI_Migration {
                                 'constraint' => 255,
                                 'NULL' => true
                         )
-
                 ));
                 $this->dbforge->add_key('user_id', TRUE);
                 $this->dbforge->create_table('users');

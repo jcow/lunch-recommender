@@ -11,6 +11,7 @@ class YelpOAuth{
 
 	protected $apiHost = 'api.yelp.com';
 	protected $searchPath = '/v2/search/';
+	protected $businessPath = '/v2/business/';
 
 	protected $consumer_key;
 	protected $consumer_secret;

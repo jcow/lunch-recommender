@@ -1,6 +1,6 @@
 <?php
 
-require("Default_model.php");
+require_once("Default_model.php");
 
 class Users_model extends Default_model {
 

@@ -20,6 +20,19 @@ var config = {
 
 </script>
 
+<style>
+	.main-nav {
+		background-color: #333;
+	}
+
+	.main-nav a{
+		color: #fff;
+		padding: 3px 5px;
+		text-align: center;
+		display: block;
+	}
+</style>
+
 </head>
 
 <body>
